@@ -4,6 +4,12 @@
 
     <div class="container-fluid">
 
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-12 text-center my-5">
                 <h1 class="display-2 text-light">Benvenuto nella UserStory</h1>

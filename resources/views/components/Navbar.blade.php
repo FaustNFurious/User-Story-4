@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
     <div class="container-fluid">
         <!-- Brand -->
         <a class="navbar-brand text-white" href="{{ route('Home') }}">
@@ -69,6 +70,17 @@
                                 </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
+                            @if(Auth::user()->is_revisor)
+                                <li>
+                                    <a class="dropdown-item position-relative" @if(request()->routeIs('revisor.index')) aria-current="page" @endif
+                                        href="{{ route('revisor.index') }}">
+                                        <i class="bi bi-check-circle"></i> Revisione Articoli
+                                        <!-- Badge per il conteggio degli articoli da revisionare -->
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">{{ App\Models\Article::toBeRevisedCount() }}</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
                             <li>
                                 <form method="POST" action="{{ route('logout') }}" class="d-inline">
                                     @csrf
@@ -97,4 +109,5 @@
             </ul>
         </div>
     </div>
+
 </nav>

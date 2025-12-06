@@ -8,8 +8,6 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-
-
 class Article extends Model
 {
     use HasFactory;
@@ -19,8 +17,25 @@ class Article extends Model
         'description',
         'price',
         'category_id',
-        'user_id'
+        'user_id',
+        'is_accepted'
     ];
+
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted = $value;
+        $this->save();
+        return true;
+    }
+
+
+    // Static method to count articles to be revised
+    public static function toBeRevisedCount()
+    {
+        return Article::where('is_accepted', null)->count();
+    }
+
 
     // Define relationships
     public function user() : BelongsTo

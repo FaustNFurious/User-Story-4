@@ -16,7 +16,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <h4 class="text-center">Nessun articolo ancora inserito.</h4>
+                    <h4 class="text-center text-light">Nessun articolo ancora inserito.</h4>
                 </div>
             @endforelse
         </div>
