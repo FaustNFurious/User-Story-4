@@ -113,8 +113,22 @@
                     <input type="search" name="query" class="form-control me-2" placeholder="Cerca articoli..." aria-label="Search">
                     <button type="submit" class="btn btn-outline-info">Cerca</button>
                 </form>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-translate"></i> Lang
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                        <li><x-_locale lang="it" /></li>
+                        <li><x-_locale lang="en" /></li>
+                        <li><x-_locale lang="es" /></li>
+                    </ul>
+                </li>
+
             </ul>
+
         </div>
+
     </div>
 
 </nav>
